@@ -13,13 +13,13 @@ namespace Keras.Optimizers
         /// <summary>
         /// Initializes a new instance of the <see cref="SGD"/> class.
         /// </summary>
-        /// <param name="lr">float >= 0. Learning rate.</param>
+        /// <param name="learning_rate">float >= 0. Learning rate.</param>
         /// <param name="momentum">float >= 0. Parameter that accelerates SGD in the relevant direction and dampens oscillations.</param>
         /// <param name="decay"> float >= 0. Learning rate decay over each update.</param>
         /// <param name="nesterov">boolean. Whether to apply Nesterov momentum.</param>
-        public SGD(float lr = 0.01f, float momentum = 0.0f, float decay = 0.0f, bool nesterov = false)
+        public SGD(float learning_rate = 0.01f, float momentum = 0.0f, float decay = 0.0f, bool nesterov = false)
         {
-            Parameters["lr"] = lr;
+            Parameters["learning_rate"] = learning_rate;
             Parameters["momentum"] = momentum;
             Parameters["decay"] = decay;
             Parameters["nesterov"] = nesterov;
@@ -39,13 +39,13 @@ namespace Keras.Optimizers
         /// <summary>
         /// Initializes a new instance of the <see cref="RMSprop"/> class.
         /// </summary>
-        /// <param name="lr">float >= 0. Learning rate.</param>
+        /// <param name="learning_rate">float >= 0. Learning rate.</param>
         /// <param name="rho">The rho factor. float > 0</param>
         /// <param name="epsilon">float >= 0. Fuzz factor. If None, defaults to K.epsilon().</param>
         /// <param name="decay">float >= 0. Learning rate decay over each update.</param>
-        public RMSprop(float lr = 0.01f, float rho = 0.9f, float? epsilon = null, float decay = 0.0f)
+        public RMSprop(float learning_rate = 0.01f, float rho = 0.9f, float? epsilon = null, float decay = 0.0f)
         {
-            Parameters["lr"] = lr;
+            Parameters["learning_rate"] = learning_rate;
             Parameters["rho"] = rho;
             Parameters["epsilon"] = epsilon;
             Parameters["decay"] = decay;
@@ -64,14 +64,14 @@ namespace Keras.Optimizers
         /// <summary>
         /// Initializes a new instance of the <see cref="Adagrad"/> class.
         /// </summary>
-        /// <param name="lr">float >= 0. Initial learning rate.</param>
+        /// <param name="learning_rate">float >= 0. Initial learning rate.</param>
         /// <param name="epsilon">float >= 0. If None, defaults to K.epsilon().</param>
         /// <param name="decay">float >= 0. Learning rate decay over each update..</param>
-        public Adagrad(float lr = 0.01f, float? epsilon = null, float decay = 0.0f)
+        public Adagrad(float learning_rate = 0.01f, float? epsilon = null, float decay = 0.0f)
         {
-            Parameters["lr"] = lr;
+            Parameters["learning_rate"] = learning_rate;
             Parameters["epsilon"] = epsilon;
-            Parameters["decay"] = lr;
+            Parameters["decay"] = decay;
 
             PyInstance = Instance.keras.optimizers.Adagrad;
             Init();
@@ -87,13 +87,13 @@ namespace Keras.Optimizers
         /// <summary>
         /// Initializes a new instance of the <see cref="Adadelta"/> class.
         /// </summary>
-        /// <param name="lr">float >= 0. Initial learning rate, defaults to 1. It is recommended to leave it at the default value.</param>
+        /// <param name="learning_rate">float >= 0. Initial learning rate, defaults to 1. It is recommended to leave it at the default value.</param>
         /// <param name="rho">float >= 0. Adadelta decay factor, corresponding to fraction of gradient to keep at each time step.</param>
         /// <param name="epsilon">float >= 0. Fuzz factor. If None, defaults to K.epsilon().</param>
         /// <param name="decay">float >= 0. Initial learning rate decay.</param>
-        public Adadelta(float lr = 1.0f, float rho = 0.95f, float? epsilon = null, float decay = 0.0f)
+        public Adadelta(float learning_rate = 1.0f, float rho = 0.95f, float? epsilon = null, float decay = 0.0f)
         {
-            Parameters["lr"] = lr;
+            Parameters["learning_rate"] = learning_rate;
             Parameters["rho"] = rho;
             Parameters["epsilon"] = epsilon;
             Parameters["decay"] = decay;
@@ -112,15 +112,15 @@ namespace Keras.Optimizers
         /// <summary>
         /// Initializes a new instance of the <see cref="Adam"/> class.
         /// </summary>
-        /// <param name="lr">The lr.</param>
+        /// <param name="learning_rate">The learning rate.</param>
         /// <param name="beta_1">The beta 1.</param>
         /// <param name="beta_2">The beta 2.</param>
         /// <param name="epsilon">The epsilon.</param>
         /// <param name="decay">The decay.</param>
         /// <param name="amsgrad">boolean. Whether to apply the AMSGrad variant of this algorithm from the paper "On the Convergence of Adam and Beyond".</param>
-        public Adam(float lr = 0.001f, float beta_1= 0.9f, float beta_2= 0.999f, float? epsilon = null, float decay = 0.0f, bool amsgrad = false)
+        public Adam(float learning_rate = 0.001f, float beta_1= 0.9f, float beta_2= 0.999f, float? epsilon = null, float decay = 0.0f, bool amsgrad = false)
         {
-            Parameters["lr"] = lr;
+            Parameters["learning_rate"] = learning_rate;
             Parameters["beta_1"] = beta_1;
             Parameters["beta_2"] = beta_2;
             Parameters["epsilon"] = epsilon;
@@ -141,14 +141,14 @@ namespace Keras.Optimizers
         /// <summary>
         /// Initializes a new instance of the <see cref="Adamax"/> class.
         /// </summary>
-        /// <param name="lr">float >= 0. Learning rate.</param>
+        /// <param name="learning_rate">float >= 0. Learning rate.</param>
         /// <param name="beta_1">floats, 0 < beta < 1. Generally close to 1.</param>
         /// <param name="beta_2">floats, 0 < beta < 1. Generally close to 1.</param>
         /// <param name="epsilon">float >= 0. Fuzz factor. If None, defaults to K.epsilon().</param>
         /// <param name="decay">float >= 0. Learning rate decay over each update.</param>
-        public Adamax(float lr = 0.002f, float beta_1 = 0.9f, float beta_2 = 0.999f, float? epsilon = null, float decay = 0.0f)
+        public Adamax(float learning_rate = 0.002f, float beta_1 = 0.9f, float beta_2 = 0.999f, float? epsilon = null, float decay = 0.0f)
         {
-            Parameters["lr"] = lr;
+            Parameters["learning_rate"] = learning_rate;
             Parameters["beta_1"] = beta_1;
             Parameters["beta_2"] = beta_2;
             Parameters["epsilon"] = epsilon;
@@ -169,14 +169,14 @@ namespace Keras.Optimizers
         /// <summary>
         /// Initializes a new instance of the <see cref="Nadam"/> class.
         /// </summary>
-        /// <param name="lr">float >= 0. Learning rate.</param>
+        /// <param name="learning_rate">float >= 0. Learning rate.</param>
         /// <param name="beta_1">floats, 0 < beta < 1. Generally close to 1.</param>
         /// <param name="beta_2">floats, 0 < beta < 1. Generally close to 1.</param>
         /// <param name="epsilon">float >= 0. Fuzz factor. If None, defaults to K.epsilon().</param>
         /// <param name="schedule_decay">floats, 0 < schedule_decay < 1.</param>
-        public Nadam(float lr = 0.002f, float beta_1 = 0.9f, float beta_2 = 0.999f)
+        public Nadam(float learning_rate = 0.002f, float beta_1 = 0.9f, float beta_2 = 0.999f)
         {
-            Parameters["lr"] = lr;
+            Parameters["learning_rate"] = learning_rate;
             Parameters["beta_1"] = beta_1;
             Parameters["beta_2"] = beta_2;
 
